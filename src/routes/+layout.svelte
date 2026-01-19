@@ -42,9 +42,9 @@
 		<div class="footer-content">
 			<p>&copy; 2025 Florian Cazac. Tous droits réservés.</p>
 			<div class="social-links">
-				<a href="#">GitHub</a>
-				<a href="#">LinkedIn</a>
-				<a href="#">Email</a>
+				<a href="https://github.com/floshv1" target="_blank">GitHub</a>
+				<a href="https://www.linkedin.com/in/fcazac/" target="_blank">LinkedIn</a>
+				<a href="mailto:cazac.florian@gmail.com">Email</a>
 			</div>
 		</div>
 	</footer>

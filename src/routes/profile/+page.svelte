@@ -1,111 +1,209 @@
+<script lang="ts">
+	const formations = [
+		{
+			title: 'Master 1 - Objets Connectés & Cybersécurité',
+			date: 'Sept 2022 - Sept 2027',
+			org: 'ESILV',
+			location: 'La Défense, Paris',
+			desc: 'Formation spécialisée en IoT et sécurité informatique. Cours incluant réseaux embarqués, cybersécurité, architecture des systèmes et développement logiciel avancé.'
+		},
+		{
+			title: 'Licence - Informatique',
+			date: 'Sept 2024 - Juin 2025',
+			org: 'UCC - UVIC',
+			location: 'Mont-de-Marsan',
+			desc: 'Base solide en programmation et concepts informatiques. Approfondissement en algorithmique, bases de données et développement logiciel.'
+		}
+	];
+
+	const experiences = [
+		{
+			role: 'Développeur Web Frontend',
+			date: 'Jan 2024 - Présent',
+			company: 'Tech Solutions',
+			location: 'Paris',
+			tasks: [
+				'Développement frontend avec Svelte et React',
+				"Création d'interfaces utilisateur responsives et accessibles",
+				"Collaboration avec l'équipe backend sur des APIs",
+				'Optimisation des performances et SEO'
+			]
+		},
+		{
+			role: 'Stage - Développement Web',
+			date: 'Juin 2023 - Août 2023',
+			company: 'Web Agency',
+			location: 'Lyon',
+			tasks: [
+				"Refonte du site vitrine de l'agence",
+				'Intégration de maquettes Figma en HTML/CSS',
+				'Correction de bugs et maintenance'
+			]
+		}
+	];
+
+	const skills = [
+		{ category: 'Langages', tags: ['JavaScript', 'TypeScript', 'Python', 'HTML & CSS'] },
+		{ category: 'Frameworks & Outils', tags: ['Svelte', 'SvelteKit', 'React', 'Git'] },
+		{ category: 'Cybersécurité & IoT', tags: ['Sécurité Web', 'Objets Connectés', 'Arduino'] }
+	];
+
+	const certificats = [
+		{
+			name: 'Certification ANSSI',
+			org: 'SecNumAcadémie',
+			year: '2023',
+			desc: 'Fondamentaux de la cybersécurité'
+		},
+		{ name: 'TOEIC', org: 'ETS Global', year: '2022', desc: 'Score : 850/990' }
+	];
+
+	const Associations = [
+		{
+			name: 'DeVinci Fablab',
+			date: '2022 - Présent',
+			description:
+				"Membre actif du fablab de l'ESILV, participation à des projets IoT et impression 3D.",
+		},
+		{
+			name: 'DaVinci Bot',
+			date: '2024 - 2025',
+			description: 'Membre de l\'équipe Travelers',
+		}
+
+	];
+</script>
+
 <h1>Mon Profil</h1>
 
 <section class="profile-header">
 	<div class="photo">
-        <img src="/profile.webp" alt="Photo de Florian Cazac" />
-    </div>
-	
+		<img src="/profile.webp" alt="Photo de Florian Cazac" />
+	</div>
+
 	<div class="header-info">
 		<h2>Florian Cazac</h2>
 		<p class="title">Etudiant M1, Objets Connectés & Cybersécurité</p>
 		<p class="email">📧 cazac.florian@gmail.com</p>
-		<p class="bio">Passionné par le développement web et les nouvelles technologies. Spécialisé en JavaScript, TypeScript et Svelte.</p>
+		<p class="bio">
+			Passionné par le développement web et les nouvelles technologies. Spécialisé en JavaScript,
+			TypeScript et Svelte.
+		</p>
 	</div>
 </section>
 
 <div class="cv-content">
-	<!-- FORMATIONS -->
-	<section class="cv-section">
-		<h3>📚 Formations</h3>
-		<div class="timeline">
-			<div class="timeline-item">
-				<h4>Master 1 - Objets Connectés & Cybersécurité</h4>
-				<p class="subtitle">ESILV • 2022 - 2027</p>
-				<p>Formation spécialisée en IoT et sécurité informatique</p>
-			</div>
-			<div class="timeline-item">
-				<h4>Licence - Informatique</h4>
-				<p class="subtitle">UCC - UVIC • 2024 - 2024</p>
-				<p>Base solide en programmation et concepts informatiques</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- EXPERIENCES -->
-	<section class="cv-section">
-		<h3>💼 Expériences Professionnelles</h3>
-		<div class="timeline">
-			<div class="timeline-item">
-				<h4>Développeur Web - [Entreprise]</h4>
-				<p class="subtitle">[Période] • [Localisation]</p>
-				<ul>
-					<li>Développement frontend avec Svelte et React</li>
-					<li>Création d'interfaces utilisateur responsives</li>
-					<li>Collaboration avec l'équipe backend</li>
-				</ul>
-			</div>
-			<div class="timeline-item">
-				<h4>Stage - [Entreprise]</h4>
-				<p class="subtitle">[Période] • [Localisation]</p>
-				<ul>
-					<li>Description de vos missions</li>
-					<li>Technologies utilisées</li>
-					<li>Résultats obtenus</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<!-- COMPETENCES -->
 	<section class="cv-section">
 		<h3>🛠️ Compétences</h3>
 		<div class="skills-grid">
-			<div class="skill-category">
-				<h4>Langages</h4>
-				<div class="skill-tags">
-					<span class="skill-tag">JavaScript</span>
-					<span class="skill-tag">TypeScript</span>
-					<span class="skill-tag">Python</span>
-					<span class="skill-tag">HTML & CSS</span>
+			{#each skills as group}
+				<div class="skill-category">
+					<h4>{group.category}</h4>
+					<div class="skill-tags">
+						{#each group.tags as tag}
+							<span class="skill-tag">{tag}</span>
+						{/each}
+					</div>
 				</div>
-			</div>
-			<div class="skill-category">
-				<h4>Frameworks & Outils</h4>
-				<div class="skill-tags">
-					<span class="skill-tag">Svelte</span>
-					<span class="skill-tag">SvelteKit</span>
-					<span class="skill-tag">React</span>
-					<span class="skill-tag">Git</span>
+			{/each}
+		</div>
+	</section>
+	<section class="cv-section">
+		<h3>📚 Formations</h3>
+		<div class="timeline">
+			{#each formations as item}
+				<div class="timeline-item">
+					<div class="timeline-header">
+						<div class="timeline-title">
+							<h4>{item.title}</h4>
+						</div>
+						<div class="timeline-date">
+							<p>{item.date}</p>
+						</div>
+					</div>
+					<div class="timeline-school">
+						<div class="timeline-org">
+							<p class="organization">{item.org}</p>
+						</div>
+						<div class="timeline-location">
+							<p class="location">{item.location}</p>
+						</div>
+					</div>
+					<div class="timeline-content">
+						<p>{item.desc}</p>
+					</div>
 				</div>
-			</div>
-			<div class="skill-category">
-				<h4>Cybersécurité & IoT</h4>
-				<div class="skill-tags">
-					<span class="skill-tag">Sécurité Web</span>
-					<span class="skill-tag">Objets Connectés</span>
-					<span class="skill-tag">Arduino</span>
-				</div>
-			</div>
+			{/each}
 		</div>
 	</section>
 
-	<!-- CERTIFICATS -->
+	<section class="cv-section">
+		<h3>💼 Expériences Professionnelles</h3>
+		<div class="timeline">
+			{#each experiences as item}
+				<div class="timeline-item">
+					<div class="timeline-header">
+						<div class="timeline-title">
+							<h4>{item.role}</h4>
+						</div>
+						<div class="timeline-date">
+							<p>{item.date}</p>
+						</div>
+					</div>
+					<div class="timeline-school">
+						<div class="timeline-org">
+							<p class="organization">{item.company}</p>
+						</div>
+						<div class="timeline-location">
+							<p class="location">{item.location}</p>
+						</div>
+					</div>
+					<div class="timeline-content">
+						<ul>
+							{#each item.tasks as task}
+								<li>{task}</li>
+							{/each}
+						</ul>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</section>
+
 	<section class="cv-section">
 		<h3>🎖️ Certificats</h3>
 		<div class="certificates">
-			<div class="certificate-item">
-				<h4>Certification [Nom]</h4>
-				<p class="subtitle">[Organisme] • [Année]</p>
-				<p>Description ou lien vers le certificat</p>
-			</div>
-			<div class="certificate-item">
-				<h4>Certification [Nom]</h4>
-				<p class="subtitle">[Organisme] • [Année]</p>
-				<p>Description ou lien vers le certificat</p>
-			</div>
+			{#each certificats as cert}
+				<div class="certificate-item">
+					<h4>{cert.name}</h4>
+					<p class="subtitle">{cert.org} • {cert.year}</p>
+					<p>{cert.desc}</p>
+				</div>
+			{/each}
 		</div>
 	</section>
+
+	<section class="cv-section">
+		<h3>🤝 Associations</h3>
+		<div class="timeline">
+			{#each Associations as assoc}
+				<div class="timeline-item">
+					<div class="timeline-header">
+						<div class="timeline-title">
+							<h4>{assoc.name}</h4>
+						</div>
+						<div class="timeline-date">
+							<p>{assoc.date}</p>
+						</div>
+					</div>
+					<div class="timeline-content">
+						<p>{assoc.description}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
 </div>
+
 
 <style>
 	/* HEADER */
@@ -161,6 +259,7 @@
 	.cv-content {
 		max-width: 900px;
 		margin: 0 auto;
+		font-family: 'Segoe UI', sans-serif; /* J'ai ajouté une police par défaut propre */
 	}
 
 	.cv-section {
@@ -179,7 +278,7 @@
 	.timeline {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 2rem;
 	}
 
 	.timeline-item {
@@ -194,10 +293,92 @@
 		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
 	}
 
-	.timeline-item h4 {
-		margin: 0 0 0.5rem 0;
+	/* Header - Titre et Date sur la même ligne */
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+		gap: 2rem;
+	}
+
+	.timeline-title {
+		flex: 1;
+	}
+
+	.timeline-title h4 {
+		margin: 0;
 		font-size: 1.1rem;
 		color: #333;
+		font-weight: 600;
+	}
+
+	.timeline-date {
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	.timeline-date p {
+		margin: 0;
+		color: #0066cc;
+		font-weight: 600;
+		font-size: 0.95rem;
+	}
+
+	/* Organisation et Localité sur la même ligne */
+	.timeline-school {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+		gap: 2rem;
+		padding-bottom: 0.5rem;
+	}
+
+	.timeline-org {
+		flex: 1;
+	}
+
+	.timeline-org .organization {
+		margin: 0;
+		color: #555;
+		font-weight: 500;
+		font-size: 0.95rem;
+	}
+
+	.timeline-location {
+		text-align: right;
+		white-space: nowrap;
+	}
+
+	.timeline-location .location {
+		margin: 0;
+		color: #666;
+		font-size: 0.95rem;
+	}
+
+	/* Contenu */
+	.timeline-content {
+		margin-top: 0.5rem;
+	}
+
+	.timeline-content p {
+		color: #555;
+		margin: 0.5rem 0;
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	.timeline-content ul {
+		margin: 0.5rem 0;
+		padding-left: 1.5rem;
+		color: #555;
+	}
+
+	.timeline-content li {
+		margin: 0.35rem 0;
+		line-height: 1.5;
+		font-size: 0.95rem;
 	}
 
 	.subtitle {
@@ -205,23 +386,6 @@
 		font-weight: 600;
 		margin: 0 0 0.5rem 0;
 		font-size: 0.95rem;
-	}
-
-	.timeline-item p {
-		color: #555;
-		margin: 0.5rem 0;
-		line-height: 1.6;
-	}
-
-	.timeline-item ul {
-		margin: 1rem 0 0 0;
-		padding-left: 1.5rem;
-		color: #555;
-	}
-
-	.timeline-item li {
-		margin: 0.5rem 0;
-		line-height: 1.6;
 	}
 
 	/* SKILLS */
