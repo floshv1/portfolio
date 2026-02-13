@@ -1,7 +1,12 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { theme } from '$lib/theme';
 
 	let { children } = $props();
+
+	function toggleTheme() {
+		theme.update((t) => !t);
+	}
 </script>
 
 <svelte:head>
@@ -13,6 +18,12 @@
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 			background: #f8f9fa;
 			color: #333;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		:global(body.dark-mode) {
+			background: #1a1a1a;
+			color: #e0e0e0;
 		}
 
 		:global(*) {
@@ -31,6 +42,13 @@
 				<li><a href="/projects">Projets</a></li>
 				<li><a href="/contactme">Contact</a></li>
 			</ul>
+			<button class="theme-toggle" on:click={toggleTheme} title="Basculer le mode sombre">
+				{#if $theme}
+					<span>☀️</span>
+				{:else}
+					<span>🌙</span>
+				{/if}
+			</button>
 		</div>
 	</nav>
 
@@ -66,6 +84,11 @@
 		flex-direction: column;
 		min-height: 100vh;
 		background: #f8f9fa;
+		transition: background-color 0.3s ease;
+	}
+
+	:global(.dark-mode) .layout-wrapper {
+		background: #1a1a1a;
 	}
 
 	/* NAVBAR */
@@ -75,6 +98,12 @@
 		position: sticky;
 		top: 0;
 		z-index: 100;
+		transition: background-color 0.3s ease;
+	}
+
+	:global(.dark-mode) .navbar {
+		background: #2a2a2a;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	}
 
 	.nav-container {
@@ -110,6 +139,10 @@
 		position: relative;
 	}
 
+	:global(.dark-mode) .nav-links a {
+		color: #e0e0e0;
+	}
+
 	.nav-links a:hover {
 		color: var(--primary);
 	}
@@ -129,6 +162,28 @@
 		width: 100%;
 	}
 
+	.theme-toggle {
+		background: none;
+		border: none;
+		font-size: 1.5rem;
+		cursor: pointer;
+		padding: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.3s ease;
+		border-radius: 50%;
+	}
+
+	.theme-toggle:hover {
+		transform: rotate(20deg);
+		background-color: rgba(0, 102, 204, 0.1);
+	}
+
+	:global(.dark-mode) .theme-toggle:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
 	/* MAIN CONTENT */
 	.main-content {
 		flex: 1;
@@ -136,6 +191,12 @@
 		width: 100%;
 		margin: 0 auto;
 		padding: 3rem 2rem;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+	:global(.dark-mode) .main-content {
+		background: #1a1a1a;
+		color: #e0e0e0;
 	}
 
 	/* FOOTER */
@@ -144,6 +205,11 @@
 		color: white;
 		margin-top: 4rem;
 		border-top: 3px solid var(--primary);
+		transition: background-color 0.3s ease;
+	}
+
+	:global(.dark-mode) .footer {
+		background: #0d0d0d;
 	}
 
 	.footer-content {

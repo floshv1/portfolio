@@ -104,6 +104,28 @@
 </div>
 
 <style>
+	:root {
+		--primary: #0066cc;
+		--primary-light: #e6f0ff;
+		--text-primary: #333;
+		--text-secondary: #555;
+		--text-muted: #666;
+		--bg-light: #f8f9fa;
+		--bg-card: #f9f9f9;
+		--border-color: #e0e0e0;
+	}
+
+	:global(.dark-mode) {
+		--primary: #4da6ff;
+		--primary-light: #1a3d66;
+		--text-primary: #e0e0e0;
+		--text-secondary: #b0b0b0;
+		--text-muted: #999;
+		--bg-light: #1a1a1a;
+		--bg-card: #2a2a2a;
+		--border-color: #444;
+	}
+
 	.projects-container {
 		width: 100%;
 	}
@@ -115,13 +137,13 @@
 
 	.projects-header h1 {
 		font-size: 2.5rem;
-		color: #1a1a1a;
+		color: var(--primary);
 		margin: 0 0 0.5rem 0;
 	}
 
 	.projects-header p {
 		font-size: 1.1rem;
-		color: #666;
+		color: var(--text-secondary);
 		margin: 0;
 	}
 
@@ -133,10 +155,10 @@
 	}
 
 	.project {
-		background: white;
+		background: var(--bg-card);
 		border-radius: 12px;
 		overflow: hidden;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 		transition: all 0.3s ease;
 		display: flex;
 		flex-direction: column;
@@ -145,14 +167,18 @@
 
 	.project:hover {
 		transform: translateY(-8px);
-		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+	}
+
+	:global(.dark-mode) .project:hover {
+		box-shadow: 0 4px 12px rgba(77, 166, 255, 0.15);
 	}
 
 	.project-image {
 		width: 100%;
 		height: 200px;
 		overflow: hidden;
-		background: #f0f0f0;
+		background: var(--border-color);
 	}
 
 	.project-image img {
@@ -174,13 +200,13 @@
 	}
 
 	.project h3 {
-		color: #0066cc;
+		color: var(--primary);
 		margin: 0 0 0.75rem 0;
 		font-size: 1.2rem;
 	}
 
 	.project p {
-		color: #555;
+		color: var(--text-secondary);
 		line-height: 1.6;
 		margin: 0 0 1rem 0;
 		flex: 1;
@@ -194,17 +220,17 @@
 	}
 
 	.tag {
-		background: #e6f0ff;
-		color: #0066cc;
+		background: var(--primary-light);
+		color: var(--primary);
 		padding: 0.35rem 0.85rem;
 		border-radius: 20px;
 		font-size: 0.8rem;
 		font-weight: 500;
-		border: 1px solid #0066cc;
+		border: 1px solid var(--primary);
 	}
 
 	.project-link {
-		color: #0066cc;
+		color: var(--primary);
 		text-decoration: none;
 		font-weight: 600;
 		transition: all 0.3s ease;

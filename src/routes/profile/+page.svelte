@@ -1,32 +1,32 @@
 <script lang="ts">
 	const formations = [
 		{
-			title: 'Master 1 - Objets Connectés & Cybersécurité',
+			title: 'Master 1 - Objets Connectés & Cybersécurité labellisé ANSSI',
 			date: 'Sept 2022 - Sept 2027',
 			org: 'ESILV',
 			location: 'La Défense, Paris',
 			desc: 'Formation spécialisée en IoT et sécurité informatique. Cours incluant réseaux embarqués, cybersécurité, architecture des systèmes et développement logiciel avancé.'
 		},
 		{
-			title: 'Licence - Informatique',
-			date: 'Sept 2024 - Juin 2025',
+			title: 'Echange Universitaire',
+			date: 'Sept 2024 - Jan 2025',
 			org: 'UCC - UVIC',
-			location: 'Mont-de-Marsan',
-			desc: 'Base solide en programmation et concepts informatiques. Approfondissement en algorithmique, bases de données et développement logiciel.'
+			location: 'Vic, Espagne',
+			desc: 'Cours de data & IA, Python et Optimisation et recherche opérationnelle.'
 		}
 	];
 
 	const experiences = [
 		{
-			role: 'Développeur Web Frontend',
-			date: 'Jan 2024 - Présent',
-			company: 'Tech Solutions',
-			location: 'Paris',
+			role: 'Secrétaire Général',
+			date: 'Mars 2025 - Fev 2026',
+			company: 'DeVinci FabLab',
+			location: 'La Défense, Paris',
 			tasks: [
-				'Développement frontend avec Svelte et React',
-				"Création d'interfaces utilisateur responsives et accessibles",
-				"Collaboration avec l'équipe backend sur des APIs",
-				'Optimisation des performances et SEO'
+				'Redaction des comptes-rendus des réunions',
+				'Organisation des recrutements et des entretien',
+				'Gestion de la communication interne et externe',
+				'Gestion des registres administratifs de l\'association'
 			]
 		},
 		{
@@ -43,8 +43,8 @@
 	];
 
 	const skills = [
-		{ category: 'Langages', tags: ['JavaScript', 'TypeScript', 'Python', 'HTML & CSS'] },
-		{ category: 'Frameworks & Outils', tags: ['Svelte', 'SvelteKit', 'React', 'Git'] },
+		{ category: 'Langages', tags: ['JavaScript', 'TypeScript', 'Python', 'HTML & CSS', 'C#', 'C/C++'] },
+		{ category: 'Frameworks & Outils', tags: ['Svelte', 'SvelteKit', 'React', 'Git & Github', 'Docker'] },
 		{ category: 'Cybersécurité & IoT', tags: ['Sécurité Web', 'Objets Connectés', 'Arduino'] }
 	];
 
@@ -69,6 +69,11 @@
 			name: 'DaVinci Bot',
 			date: '2024 - 2025',
 			description: 'Membre de l\'équipe Travelers',
+		},
+		{
+			name: 'DaVinci Esport',
+			date: '2022 - 2025',
+			description: 'Membre de l\'équipe TeamFight Tactics.',
 		}
 
 	];
@@ -78,7 +83,7 @@
 
 <section class="profile-header">
 	<div class="photo">
-		<img src="/profile.webp" alt="Photo de Florian Cazac" />
+		<img src="/profile.webp" />
 	</div>
 
 	<div class="header-info">
@@ -92,8 +97,22 @@
 	</div>
 </section>
 
-<div class="cv-content">
-	<section class="cv-section">
+<div class="profile-container">
+	<aside class="table-of-contents">
+		<h3>Sommaire</h3>
+		<nav>
+			<ul>
+				<li><a href="#skills">🛠️ Compétences</a></li>
+				<li><a href="#formations">📚 Formations</a></li>
+				<li><a href="#experiences">💼 Expériences</a></li>
+				<li><a href="#certificates">🎖️ Certificats</a></li>
+				<li><a href="#associations">🤝 Associations</a></li>
+			</ul>
+		</nav>
+	</aside>
+
+	<div class="cv-content">
+	<section class="cv-section" id="skills">
 		<h3>🛠️ Compétences</h3>
 		<div class="skills-grid">
 			{#each skills as group}
@@ -108,7 +127,7 @@
 			{/each}
 		</div>
 	</section>
-	<section class="cv-section">
+	<section class="cv-section" id="formations">
 		<h3>📚 Formations</h3>
 		<div class="timeline">
 			{#each formations as item}
@@ -137,7 +156,7 @@
 		</div>
 	</section>
 
-	<section class="cv-section">
+	<section class="cv-section" id="experiences">
 		<h3>💼 Expériences Professionnelles</h3>
 		<div class="timeline">
 			{#each experiences as item}
@@ -170,7 +189,7 @@
 		</div>
 	</section>
 
-	<section class="cv-section">
+	<section class="cv-section" id="certificates">
 		<h3>🎖️ Certificats</h3>
 		<div class="certificates">
 			{#each certificats as cert}
@@ -183,7 +202,7 @@
 		</div>
 	</section>
 
-	<section class="cv-section">
+	<section class="cv-section" id="associations">
 		<h3>🤝 Associations</h3>
 		<div class="timeline">
 			{#each Associations as assoc}
@@ -202,18 +221,47 @@
 				</div>
 			{/each}
 		</div>
+	</section>
+</div>
 </div>
 
 
 <style>
+	:root {
+		--primary: #0066cc;
+		--primary-light: #e6f0ff;
+		--text-primary: #333;
+		--text-secondary: #555;
+		--text-muted: #666;
+		--bg-light: #f8f9fa;
+		--bg-card: #f9f9f9;
+		--border-color: #e0e0e0;
+	}
+
+	:global(.dark-mode) {
+		--primary: #4da6ff;
+		--primary-light: #1a3d66;
+		--text-primary: #e0e0e0;
+		--text-secondary: #b0b0b0;
+		--text-muted: #999;
+		--bg-light: #1a1a1a;
+		--bg-card: #2a2a2a;
+		--border-color: #444;
+	}
+
 	/* HEADER */
 	.profile-header {
 		display: flex;
 		gap: 2rem;
 		margin-bottom: 3rem;
 		padding: 2rem;
-		background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+		background: linear-gradient(135deg, var(--bg-light) 0%, var(--primary-light) 100%);
 		border-radius: 12px;
+		transition: background 0.3s ease;
+	}
+
+	:global(.dark-mode) .profile-header {
+		background: linear-gradient(135deg, var(--bg-card) 0%, var(--primary-light) 100%);
 	}
 
 	.photo img {
@@ -221,7 +269,7 @@
 		width: 180px;
 		height: 180px;
 		object-fit: cover;
-		border: 4px solid #0066cc;
+		border: 4px solid var(--primary);
 		flex-shrink: 0;
 	}
 
@@ -234,32 +282,81 @@
 	.header-info h2 {
 		margin: 0 0 0.5rem 0;
 		font-size: 2rem;
-		color: #0066cc;
+		color: var(--primary);
 	}
 
 	.title {
 		font-size: 1.1rem;
 		font-weight: 600;
-		color: #333;
+		color: var(--text-primary);
 		margin: 0.5rem 0;
 	}
 
 	.email {
-		color: #666;
+		color: var(--text-secondary);
 		margin: 0.5rem 0;
 	}
 
 	.bio {
-		color: #555;
+		color: var(--text-secondary);
 		line-height: 1.6;
 		margin-top: 1rem;
 	}
 
 	/* CV CONTENT */
+	.profile-container {
+		display: grid;
+		grid-template-columns: 250px 1fr;
+		gap: 3rem;
+		margin-top: 2rem;
+	}
+
+	.table-of-contents {
+		position: sticky;
+		top: 100px;
+		height: fit-content;
+	}
+
+	.table-of-contents h3 {
+		font-size: 1.2rem;
+		color: var(--primary);
+		margin: 0 0 1rem 0;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid var(--primary);
+	}
+
+	.table-of-contents nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.table-of-contents nav li {
+		margin: 0.75rem 0;
+	}
+
+	.table-of-contents nav a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.95rem;
+		display: block;
+		padding: 0.5rem 0.75rem;
+		border-radius: 4px;
+		transition: all 0.3s ease;
+		border-left: 3px solid transparent;
+	}
+
+	.table-of-contents nav a:hover {
+		color: var(--primary);
+		background: var(--primary-light);
+		border-left-color: var(--primary);
+		padding-left: 1.25rem;
+	}
+
 	.cv-content {
 		max-width: 900px;
 		margin: 0 auto;
-		font-family: 'Segoe UI', sans-serif; /* J'ai ajouté une police par défaut propre */
+		font-family: 'Segoe UI', sans-serif;
 	}
 
 	.cv-section {
@@ -268,10 +365,10 @@
 
 	.cv-section h3 {
 		font-size: 1.5rem;
-		color: #0066cc;
+		color: var(--primary);
 		margin-bottom: 1.5rem;
 		padding-bottom: 0.5rem;
-		border-bottom: 3px solid #0066cc;
+		border-bottom: 3px solid var(--primary);
 	}
 
 	/* TIMELINE */
@@ -283,14 +380,18 @@
 
 	.timeline-item {
 		padding: 1.5rem;
-		background: #f9f9f9;
-		border-left: 4px solid #0066cc;
+		background: var(--bg-card);
+		border-left: 4px solid var(--primary);
 		border-radius: 4px;
 		transition: box-shadow 0.3s ease;
 	}
 
 	.timeline-item:hover {
 		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+	}
+
+	:global(.dark-mode) .timeline-item:hover {
+		box-shadow: 0 4px 12px rgba(77, 166, 255, 0.15);
 	}
 
 	/* Header - Titre et Date sur la même ligne */
@@ -309,7 +410,7 @@
 	.timeline-title h4 {
 		margin: 0;
 		font-size: 1.1rem;
-		color: #333;
+		color: var(--text-primary);
 		font-weight: 600;
 	}
 
@@ -320,7 +421,7 @@
 
 	.timeline-date p {
 		margin: 0;
-		color: #0066cc;
+		color: var(--primary);
 		font-weight: 600;
 		font-size: 0.95rem;
 	}
@@ -341,7 +442,7 @@
 
 	.timeline-org .organization {
 		margin: 0;
-		color: #555;
+		color: var(--text-secondary);
 		font-weight: 500;
 		font-size: 0.95rem;
 	}
@@ -353,7 +454,7 @@
 
 	.timeline-location .location {
 		margin: 0;
-		color: #666;
+		color: var(--text-muted);
 		font-size: 0.95rem;
 	}
 
@@ -363,7 +464,7 @@
 	}
 
 	.timeline-content p {
-		color: #555;
+		color: var(--text-secondary);
 		margin: 0.5rem 0;
 		line-height: 1.6;
 		font-size: 0.95rem;
@@ -372,7 +473,7 @@
 	.timeline-content ul {
 		margin: 0.5rem 0;
 		padding-left: 1.5rem;
-		color: #555;
+		color: var(--text-secondary);
 	}
 
 	.timeline-content li {
@@ -382,7 +483,7 @@
 	}
 
 	.subtitle {
-		color: #0066cc;
+		color: var(--primary);
 		font-weight: 600;
 		margin: 0 0 0.5rem 0;
 		font-size: 0.95rem;
@@ -396,7 +497,7 @@
 	}
 
 	.skill-category h4 {
-		color: #333;
+		color: var(--text-primary);
 		font-size: 1rem;
 		margin: 0 0 1rem 0;
 	}
@@ -408,18 +509,29 @@
 	}
 
 	.skill-tag {
-		background: #e6f0ff;
-		color: #0066cc;
+		background: var(--primary-light);
+		color: var(--primary);
 		padding: 0.5rem 1rem;
 		border-radius: 20px;
 		font-size: 0.9rem;
 		font-weight: 500;
-		border: 1px solid #0066cc;
+		border: 1px solid var(--primary);
 		transition: all 0.3s ease;
 	}
 
 	.skill-tag:hover {
-		background: #0066cc;
+		background: var(--primary);
+		color: white;
+	}
+
+	:global(.dark-mode) .skill-tag {
+		background: var(--primary-light);
+		color: var(--primary);
+		border-color: var(--primary);
+	}
+
+	:global(.dark-mode) .skill-tag:hover {
+		background: var(--primary);
 		color: white;
 	}
 
@@ -432,9 +544,9 @@
 
 	.certificate-item {
 		padding: 1.5rem;
-		border: 2px solid #0066cc;
+		border: 2px solid var(--primary);
 		border-radius: 8px;
-		background: #f9f9f9;
+		background: var(--bg-card);
 		transition: transform 0.3s ease;
 	}
 
@@ -443,20 +555,34 @@
 		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
 	}
 
+	:global(.dark-mode) .certificate-item:hover {
+		box-shadow: 0 4px 12px rgba(77, 166, 255, 0.2);
+	}
+
 	.certificate-item h4 {
 		margin: 0 0 0.5rem 0;
-		color: #0066cc;
+		color: var(--primary);
 		font-size: 1rem;
 	}
 
 	.certificate-item p {
-		color: #555;
+		color: var(--text-secondary);
 		margin: 0.5rem 0;
 		font-size: 0.9rem;
 	}
 
 	/* RESPONSIVE */
 	@media (max-width: 768px) {
+		.profile-container {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.table-of-contents {
+			position: static;
+			margin-bottom: 1.5rem;
+		}
+
 		.profile-header {
 			flex-direction: column;
 			align-items: center;

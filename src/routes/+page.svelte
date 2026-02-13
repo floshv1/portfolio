@@ -32,8 +32,30 @@
 </section>
 
 <style>
+	:root {
+		--primary: #0066cc;
+		--primary-light: #e6f0ff;
+		--text-primary: #333;
+		--text-secondary: #555;
+		--text-muted: #666;
+		--bg-light: #f8f9fa;
+		--bg-card: #f9f9f9;
+		--border-color: #e0e0e0;
+	}
+
+	:global(.dark-mode) {
+		--primary: #4da6ff;
+		--primary-light: #1a3d66;
+		--text-primary: #e0e0e0;
+		--text-secondary: #b0b0b0;
+		--text-muted: #999;
+		--bg-light: #1a1a1a;
+		--bg-card: #2a2a2a;
+		--border-color: #444;
+	}
+
 	.hero {
-		background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+		background: linear-gradient(135deg, var(--primary) 0%, #004a99 100%);
 		color: white;
 		padding: 4rem 2rem;
 		border-radius: 12px;
@@ -41,10 +63,15 @@
 		margin-bottom: 4rem;
 	}
 
+	:global(.dark-mode) .hero {
+		background: linear-gradient(135deg, #4da6ff 0%, #0052a3 100%);
+	}
+
 	.hero-content h1 {
 		font-size: 3rem;
 		margin: 0 0 1rem 0;
 		font-weight: 700;
+		color: white;
 	}
 
 	.subtitle {
@@ -52,6 +79,7 @@
 		margin: 0 0 1rem 0;
 		font-weight: 500;
 		opacity: 0.95;
+		color: white;
 	}
 
 	.description {
@@ -62,6 +90,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		line-height: 1.6;
+		color: white;
 	}
 
 	.cta-buttons {
@@ -84,12 +113,13 @@
 
 	.btn-primary {
 		background: white;
-		color: #0066cc;
+		color: var(--primary);
 	}
 
 	.btn-primary:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		background: #f0f0f0;
 	}
 
 	.btn-secondary {
@@ -100,7 +130,7 @@
 
 	.btn-secondary:hover {
 		background: white;
-		color: #0066cc;
+		color: var(--primary);
 		transform: translateY(-2px);
 	}
 
@@ -112,7 +142,7 @@
 	.highlights h2 {
 		text-align: center;
 		font-size: 2rem;
-		color: #1a1a1a;
+		color: var(--text-primary);
 		margin-bottom: 2rem;
 	}
 
@@ -123,18 +153,18 @@
 	}
 
 	.card {
-		background: white;
+		background: var(--bg-card);
 		padding: 2rem;
 		border-radius: 10px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 		text-align: center;
 		transition: all 0.3s ease;
-		border-top: 3px solid #0066cc;
+		border-top: 3px solid var(--primary);
 	}
 
 	.card:hover {
 		transform: translateY(-8px);
-		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+		box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
 	}
 
 	.icon {
@@ -143,13 +173,13 @@
 	}
 
 	.card h3 {
-		color: #0066cc;
+		color: var(--primary);
 		margin-bottom: 0.75rem;
 		font-size: 1.2rem;
 	}
 
 	.card p {
-		color: #666;
+		color: var(--text-secondary);
 		line-height: 1.6;
 		margin: 0;
 	}

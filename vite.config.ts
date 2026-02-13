@@ -3,6 +3,18 @@ import { playwright } from '@vitest/browser-playwright';
 import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
+	server: {
+		host: '0.0.0.0',
+		watch: {
+			usePolling: true,
+			interval: 1000
+		},
+		hmr: {
+			host: '127.0.0.1',
+			port: 5173,
+			protocol: 'ws'
+		}
+	},
 	plugins: [sveltekit()],
 
 	test: {
